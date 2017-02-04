@@ -1,4 +1,4 @@
-module Common where
+module Types where
 
 type Name = Char
 

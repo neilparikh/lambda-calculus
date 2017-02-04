@@ -1,5 +1,5 @@
 module Eval where
-import Common
+import Types
 
 eval :: Expr -> Expr
 eval (Variable x) = Variable x

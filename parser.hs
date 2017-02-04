@@ -1,7 +1,7 @@
 module Parser where
 import Text.Parsec
 
-import Common
+import Types
 
 type Parser a = Parsec String () a
 applyParser :: Parser a -> String -> Either ParseError a
