@@ -1,13 +1,11 @@
 import Common
+import Parser (applyParser, exprParser)
 
 main :: IO ()
-main = print $ eval exampleExpr
-
---((λx.((λy.(x y))x))(λz.w))
-exampleExpr :: Expr
-exampleExpr = App (App (Lambda 'x' (Lambda 'y' (Variable 'y')))
-                       (Variable 'a'))
-                  (Variable 'b')
+main = do
+    putStrLn $ case applyParser exprParser "(((λx.(λy.((x)(y))))(λa.(a)))(r))" of
+        Right expr -> show . eval $ expr
+        Left error -> show error
 
 eval :: Expr -> Expr
 eval (Variable x) = Variable x
