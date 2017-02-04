@@ -1,3 +1,5 @@
+import Common
+
 main :: IO ()
 main = print $ eval exampleExpr
 
@@ -6,13 +8,6 @@ exampleExpr :: Expr
 exampleExpr = App (App (Lambda 'x' (Lambda 'y' (Variable 'y')))
                        (Variable 'a'))
                   (Variable 'b')
-
-type Name = Char
-
-data Expr = Variable Name
-          | Lambda Name Expr
-          | App Expr Expr
-          deriving Show
 
 eval :: Expr -> Expr
 eval (Variable x) = Variable x
