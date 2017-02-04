@@ -11,7 +11,7 @@ parens :: Parser a -> Parser a
 parens subParser = char '(' *> subParser <* char ')'
 
 exprParser :: Parser Expr
-exprParser = parens (appParser <|> lambdaParser <|> variableParser)
+exprParser = (parens (appParser <|> lambdaParser)) <|> variableParser
 
 lambdaParser :: Parser Expr
 lambdaParser = Lambda <$> (char '|' *> letter) <*> (char '.' *> exprParser)
