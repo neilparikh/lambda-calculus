@@ -3,7 +3,7 @@ import Parser (applyParser, exprParser)
 
 main :: IO ()
 main = do
-    putStrLn $ case applyParser exprParser "(((λx.(λy.((x)(y))))(λa.(a)))(r))" of
+    putStrLn $ case applyParser exprParser "(((|x.(|y.(xy)))(|a.a))r)" of
         Right expr -> show . eval $ expr
         Left error -> show error
 

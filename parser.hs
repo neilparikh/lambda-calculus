@@ -14,7 +14,7 @@ exprParser :: Parser Expr
 exprParser = parens (appParser <|> lambdaParser <|> variableParser)
 
 lambdaParser :: Parser Expr
-lambdaParser = Lambda <$> (char 'λ' *> letter) <*> (char '.' *> exprParser)
+lambdaParser = Lambda <$> (char '|' *> letter) <*> (char '.' *> exprParser)
 
 appParser :: Parser Expr
 appParser = App <$> exprParser <*> exprParser
