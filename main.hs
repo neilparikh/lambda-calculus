@@ -1,5 +1,5 @@
 import Parser (applyParser, exprParser)
-import SimplyTyped (typeCheck, emptyCtx)
+import SystemF (typeCheck, emptyCtx)
 import Types (Expr(Annotate))
 
 main :: IO ()
