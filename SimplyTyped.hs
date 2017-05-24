@@ -1,4 +1,4 @@
-module SystemF where
+module SimplyTyped where
 
 import Data.Map.Strict as M
 
