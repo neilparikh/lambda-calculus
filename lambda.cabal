@@ -17,9 +17,9 @@ executable lambda
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  other-modules:       SimplyTyped,
-                       Types,
-                       Parser
+  other-modules:       SimplyTyped.TypeChecker,
+                       SimplyTyped.Types,
+                       SimplyTyped.Parser
   build-depends:       base >= 4.7 && < 5,
                        containers,
                        parsec

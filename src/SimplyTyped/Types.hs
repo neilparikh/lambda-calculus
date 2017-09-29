@@ -1,4 +1,4 @@
-module Types where
+module SimplyTyped.Types where
 
 type Name = Char
 

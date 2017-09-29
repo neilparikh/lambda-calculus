@@ -1,8 +1,8 @@
-module SimplyTyped where
+module SimplyTyped.TypeChecker where
 
 import Data.Map.Strict as M
 
-import Types
+import SimplyTyped.Types
 
 type Context = M.Map Name Type
 

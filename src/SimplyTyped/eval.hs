@@ -1,5 +1,5 @@
-module Eval where
-import Types
+module SimplyTyped.Eval where
+import SimplyTyped.Types
 
 eval :: Expr -> Expr
 eval (Variable x) = Variable x

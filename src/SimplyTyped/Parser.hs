@@ -1,7 +1,7 @@
-module Parser where
+module SimplyTyped.Parser where
 import Text.Parsec
 
-import Types
+import SimplyTyped.Types
 
 type Parser a = Parsec String () a
 applyParser :: Parser a -> String -> Either ParseError a
