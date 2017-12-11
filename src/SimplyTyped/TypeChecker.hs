@@ -16,7 +16,6 @@ typeCheck ctx expr t = (typeInfer ctx expr) == (Just t)
 
 typeInfer :: Context -> Expr -> Maybe Type
 typeInfer _ (Lambda _ _) = Nothing
-typeInfer ctx (Annotate e t) = if (typeCheck ctx e t) then (Just t) else Nothing
 typeInfer ctx (App e1 e2) = case (typeInfer ctx e1) of
     Just (Function t1 t2) -> if (typeCheck ctx e2 t1) then (Just t2) else Nothing
     Just (Base _) -> Nothing

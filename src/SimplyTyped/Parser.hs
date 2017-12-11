@@ -11,7 +11,7 @@ parens :: Parser a -> Parser a
 parens subParser = char '(' *> subParser <* char ')'
 
 exprParser :: Parser Expr
-exprParser = (parens (try annotationParser <|> appParser <|> lambdaParser)) <|> variableParser
+exprParser = (parens (appParser <|> lambdaParser)) <|> variableParser
 
 lambdaParser :: Parser Expr
 lambdaParser = Lambda <$> (char '|' *> lower) <*> (char '.' *> exprParser)
@@ -21,9 +21,6 @@ appParser = App <$> exprParser <*> exprParser
 
 variableParser :: Parser Expr
 variableParser = Variable <$> lower
-
-annotationParser :: Parser Expr
-annotationParser = Annotate <$> exprParser <* string " : " <*> typeParser
 
 typeParser :: Parser Type
 typeParser =  functionParser <|> baseParser
